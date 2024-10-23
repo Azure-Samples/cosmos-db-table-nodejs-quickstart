@@ -47,11 +47,20 @@ export class DataClient {
     }
 
     async createEntities(_: Emit, table: TableClient) {
+        {
+            // Create entity
+        }
+    
+        {
+            // Create entity
+        }
     }
     
     async readEntity(_: Emit, table: TableClient) {
+        // Read entity
     }
 
     async queryEntities(_: Emit, table: TableClient) {
+        // Query entities
     }
 }
