@@ -58,4 +58,4 @@ This is a simple Express web application to illustrate common basic usage of Azu
     ```
 
     > [!IMPORTANT]
-    > When your Azure infrastructure is provisioned, the endpoint for your deployed Azure Cosmos DB for NoSQL account is automatically saved in the *.env* file for both the JavaScript and TypeScript local projects to make debugging easier.
+    > When your Azure infrastructure is provisioned, the endpoint for your deployed Azure Cosmos DB for Table account is automatically saved in the *.env* file for both the JavaScript and TypeScript local projects to make debugging easier.
