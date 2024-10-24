@@ -64,7 +64,7 @@ module containerAppsJsApp 'br/public:avm/res/app/container-app:0.9.0' = {
     secrets: {
       secureList: [
         {
-          name: 'azure-cosmos-db-nosql-endpoint'
+          name: 'azure-cosmos-db-table-endpoint'
           value: databaseAccountEndpoint
         }
         {
@@ -83,8 +83,8 @@ module containerAppsJsApp 'br/public:avm/res/app/container-app:0.9.0' = {
         }
         env: [
           {
-            name: 'AZURE_COSMOS_DB_NOSQL_ENDPOINT'
-            secretRef: 'azure-cosmos-db-nosql-endpoint'
+            name: 'AZURE_COSMOS_DB_TABLE_ENDPOINT'
+            secretRef: 'azure-cosmos-db-table-endpoint'
           }
           {
             name: 'AZURE_CLIENT_ID'
