@@ -17,10 +17,12 @@ param logWorkspaceName string = ''
 param cosmosDbAccountName string = ''
 param containerRegistryName string = ''
 param containerAppsEnvName string = ''
-param containerAppsAppName string = ''
+param containerAppsTypeScriptAppName string = ''
+param containerAppsJavaScriptAppName string = ''
 
 // serviceName is used as value for the tag (azd-service-name) azd uses to identify deployment host
-param serviceName string = 'web'
+param typeScriptServiceName string = 'typescript-web'
+param javaScriptServiceName string = 'javascript-web'
 
 var abbreviations = loadJsonContent('abbreviations.json')
 var resourceToken = toLower(uniqueString(resourceGroup().id, environmentName, location))
@@ -59,14 +61,16 @@ module registry 'app/registry.bicep' = {
 }
 
 module web 'app/web.bicep' = {
-  name: serviceName
+  name: 'web'
   params: {
     workspaceName: !empty(logWorkspaceName) ? logWorkspaceName : '${abbreviations.logAnalyticsWorkspace}-${resourceToken}'
     envName: !empty(containerAppsEnvName) ? containerAppsEnvName : '${abbreviations.containerAppsEnv}-${resourceToken}'
-    appName: !empty(containerAppsAppName) ? containerAppsAppName : '${abbreviations.containerAppsApp}-${resourceToken}'
+    jsAppName: !empty(containerAppsJavaScriptAppName) ? containerAppsJavaScriptAppName : '${abbreviations.containerAppsApp}-js-${resourceToken}'
+    tsAppName: !empty(containerAppsTypeScriptAppName) ? containerAppsTypeScriptAppName : '${abbreviations.containerAppsApp}-ts-${resourceToken}'
     location: location
     tags: tags
-    serviceTag: serviceName    
+    jsServiceTag: javaScriptServiceName
+    tsServiceTag: typeScriptServiceName
     appResourceId: identity.outputs.resourceId
     appClientId: identity.outputs.clientId
     databaseAccountEndpoint: database.outputs.endpoint
