@@ -1,6 +1,5 @@
 import { DefaultAzureCredential } from '@azure/identity';
 import { TableServiceClient, TableClient } from '@azure/data-tables';
-import { query } from 'express';
 
 export async function start(emit) {
     // <create_client>

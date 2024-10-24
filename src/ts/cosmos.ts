@@ -1,6 +1,6 @@
 import { PagedAsyncIterableIterator } from '@azure/core-paging';
 import { DefaultAzureCredential, TokenCredential } from '@azure/identity';
-import { TableServiceClient, TableClient, UpdateMode, TableEntityResult, GetTableEntityResponse, TableEntityResultPage, TableEntityQueryOptions } from '@azure/data-tables';
+import { TableServiceClient, TableClient, TableEntityResult, GetTableEntityResponse, TableEntityResultPage, TableEntityQueryOptions } from '@azure/data-tables';
 
 import { Emit, Product } from './types'
 
@@ -24,7 +24,7 @@ export class DataClient {
 
     async createClient(_: Emit): Promise<TableServiceClient> {
         // <create_client>
-        const endpoint: string = process.env.AZURE_COSMOS_DB_NOSQL_ENDPOINT!
+        const endpoint: string = process.env.AZURE_COSMOS_DB_TABLE_ENDPOINT!
         console.log(`ENDPOINT: ${endpoint}`);
         
         const credential: TokenCredential = new DefaultAzureCredential();
@@ -36,7 +36,7 @@ export class DataClient {
     }
 
     async createTable(emit: Emit, client: TableServiceClient): Promise<TableClient> {
-        const endpoint: string = process.env.AZURE_COSMOS_DB_NOSQL_ENDPOINT!
+        const endpoint: string = process.env.AZURE_COSMOS_DB_TABLE_ENDPOINT!
         
         const credential: TokenCredential = new DefaultAzureCredential();
 
