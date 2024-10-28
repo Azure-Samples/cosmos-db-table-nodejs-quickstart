@@ -19,7 +19,7 @@ This is a simple Express web application to illustrate common basic usage of Azu
 
 - [Docker](https://www.docker.com/)
 - [Azure Developer CLI](https://aka.ms/azd-install)
-- [Node.js 22 or newer](https://nodejs.org/)
+- [Node.js 20 or newer](https://nodejs.org/)
 
 ### Quickstart
 
