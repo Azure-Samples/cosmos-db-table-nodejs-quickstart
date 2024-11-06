@@ -3,7 +3,7 @@ import { TableServiceClient, TableClient } from '@azure/data-tables';
 
 export async function start(emit) {
     // <create_client>
-    const endpoint = process.env.AZURE_COSMOS_DB_TABLE_ENDPOINT;
+    const endpoint = process.env.CONFIGURATION__AZURECOSMOSDB__ENDPOINT;
     console.log(`ENDPOINT: ${endpoint}`);
 
     const credential = new DefaultAzureCredential();
@@ -12,7 +12,8 @@ export async function start(emit) {
     // </create_client>
     emit('Current Status:\tStarting...')
     
-    const table = new TableClient(endpoint, "cosmicworks-products", credential);
+    const tableName = process.env.CONFIGURATION__AZURECOSMOSDB__TABLENAME ?? 'cosmicworks-products';
+    const table = new TableClient(endpoint, tableName, credential);
 
     emit(`Get table:\t${table.tableName}`);
 
@@ -26,7 +27,7 @@ export async function start(emit) {
             clearance: false
         };
 
-        await table.upsertEntity(entity, "Replace");
+        await table.upsertEntity(entity, 'Replace');
         emit(`Upserted item:\t${JSON.stringify(entity)}`);
     }
 
@@ -40,7 +41,7 @@ export async function start(emit) {
             clearance: true
         };
 
-        await table.upsertEntity(entity, "Replace");
+        await table.upsertEntity(entity, 'Replace');
         emit(`Upserted item:\t${JSON.stringify(entity)}`);
     }
 
