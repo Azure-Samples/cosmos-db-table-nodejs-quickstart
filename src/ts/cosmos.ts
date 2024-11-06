@@ -24,7 +24,7 @@ export class DataClient {
 
     async createClient(_: Emit): Promise<TableServiceClient> {
         // <create_client>
-        const endpoint: string = process.env.AZURE_COSMOS_DB_TABLE_ENDPOINT!
+        const endpoint: string = process.env.CONFIGURATION__AZURECOSMOSDB__ENDPOINT!
         console.log(`ENDPOINT: ${endpoint}`);
         
         const credential: TokenCredential = new DefaultAzureCredential();
@@ -36,11 +36,12 @@ export class DataClient {
     }
 
     async createTable(emit: Emit, client: TableServiceClient): Promise<TableClient> {
-        const endpoint: string = process.env.AZURE_COSMOS_DB_TABLE_ENDPOINT!
+        const endpoint: string = process.env.CONFIGURATION__AZURECOSMOSDB__ENDPOINT!
         
         const credential: TokenCredential = new DefaultAzureCredential();
 
-        let table: TableClient = new TableClient(endpoint, "cosmicworks-products", credential);
+        const tableName: string = process.env.CONFIGURATION__AZURECOSMOSDB__TABLENAME ?? 'cosmicworks-products';
+        let table: TableClient = new TableClient(endpoint, tableName, credential);
 
         emit(`Get table:\t${table.tableName}`);
 
@@ -58,7 +59,7 @@ export class DataClient {
                 clearance: false
             };
 
-            await table.upsertEntity<Product>(entity, "Replace");            
+            await table.upsertEntity<Product>(entity, 'Replace');            
             emit(`Upserted item:\t${JSON.stringify(entity)}`);
         }
     
@@ -72,7 +73,7 @@ export class DataClient {
                 clearance: true
             };
     
-            await table.upsertEntity<Product>(entity, "Replace");
+            await table.upsertEntity<Product>(entity, 'Replace');
             emit(`Upserted item:\t${JSON.stringify(entity)}`);
         }
     }

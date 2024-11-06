@@ -25,14 +25,26 @@ hooks:
     windows:
       shell: pwsh
       run: |
-        echo "AZURE_COSMOS_DB_TABLE_ENDPOINT=""$env:AZURE_COSMOS_DB_TABLE_ENDPOINT""" > ./src/js/.env
-        echo "AZURE_COSMOS_DB_TABLE_ENDPOINT=""$env:AZURE_COSMOS_DB_TABLE_ENDPOINT""" > ./src/ts/.env
+        echo "
+        CONFIGURATION__AZURECOSMOSDB__ENDPOINT=""$env:CONFIGURATION__AZURECOSMOSDB__ENDPOINT""
+        CONFIGURATION__AZURECOSMOSDB__TABLENAME=""$env:CONFIGURATION__AZURECOSMOSDB__TABLENAME""
+        " > ./src/js/.env
+        echo "
+        CONFIGURATION__AZURECOSMOSDB__ENDPOINT=""$env:CONFIGURATION__AZURECOSMOSDB__ENDPOINT""
+        CONFIGURATION__AZURECOSMOSDB__TABLENAME=""$env:CONFIGURATION__AZURECOSMOSDB__TABLENAME""
+        " > ./src/ts/.env
       continueOnError: false
       interactive: true
     posix:
       shell: sh
       run: |
-        echo "AZURE_COSMOS_DB_TABLE_ENDPOINT=\"$AZURE_COSMOS_DB_TABLE_ENDPOINT\"" > ./src/js/.env
-        echo "AZURE_COSMOS_DB_TABLE_ENDPOINT=\"$AZURE_COSMOS_DB_TABLE_ENDPOINT\"" > ./src/ts/.env
+        echo "
+        CONFIGURATION__AZURECOSMOSDB__ENDPOINT=\"$CONFIGURATION__AZURECOSMOSDB__ENDPOINT\"
+        CONFIGURATION__AZURECOSMOSDB__TABLENAME=\"$CONFIGURATION__AZURECOSMOSDB__TABLENAME\"
+        " > ./src/js/.env
+        echo "
+        CONFIGURATION__AZURECOSMOSDB__ENDPOINT=\"$CONFIGURATION__AZURECOSMOSDB__ENDPOINT\"
+        CONFIGURATION__AZURECOSMOSDB__TABLENAME=\"$CONFIGURATION__AZURECOSMOSDB__TABLENAME\"
+        " > ./src/ts/.env
       continueOnError: false
       interactive: true
