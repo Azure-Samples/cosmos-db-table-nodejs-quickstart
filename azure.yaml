@@ -13,7 +13,7 @@ services:
       context: ./
   typescript-web:
     project: ./src/ts
-    language: js
+    language: ts
     host: containerapp
     docker:
       path: ./Dockerfile
