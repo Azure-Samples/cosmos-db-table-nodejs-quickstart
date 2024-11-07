@@ -51,7 +51,7 @@ export class DataClient {
     async createEntities(emit: Emit, table: TableClient) {
         {
             const entity: Product = {
-                rowKey: '70b63682-b93a-4c77-aad2-65501347265f',
+                rowKey: 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb',
                 partitionKey: 'gear-surf-surfboards',
                 name: 'Yamba Surfboard',
                 quantity: 12,
@@ -65,7 +65,7 @@ export class DataClient {
     
         {
             const entity: Product = {
-                rowKey: '25a68543-b90c-439d-8332-7ef41e06a0e0',
+                rowKey: 'bbbbbbbb-1111-2222-3333-cccccccccccc',
                 partitionKey: 'gear-surf-surfboards',
                 name: 'Kiama Classic Surfboard',
                 quantity: 25,
@@ -79,7 +79,7 @@ export class DataClient {
     }
     
     async readEntity(emit: Emit, table: TableClient) {
-        const rowKey: string = '70b63682-b93a-4c77-aad2-65501347265f';
+        const rowKey: string = 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb';
         const partitionKey: string = 'gear-surf-surfboards';
 
         const response: GetTableEntityResponse<TableEntityResult<Product>> = await table.getEntity<Product>(partitionKey, rowKey);
