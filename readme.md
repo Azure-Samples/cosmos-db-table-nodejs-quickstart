@@ -1,3 +1,4 @@
+<!--
 ---
 page_type: sample
 name: "Quickstart: Azure Cosmos DB for Table and Azure SDK for Node.js"
@@ -10,18 +11,19 @@ languages:
 products:
 - azure-cosmos-db
 ---
+-->
 
 # Quickstart: Azure Cosmos DB for Table - Azure SDK for Node.js
 
 This is a simple Express web application to illustrate common basic usage of Azure Cosmos DB for Table with the Azure SDK for Node.js.
 
-### Prerequisites
+## Prerequisites
 
 - [Docker](https://www.docker.com/)
 - [Azure Developer CLI](https://aka.ms/azd-install)
 - [Node.js 20 or newer](https://nodejs.org/)
 
-### Quickstart
+## Quickstart
 
 1. Log in to Azure Developer CLI.
 
