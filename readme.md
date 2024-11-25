@@ -25,14 +25,11 @@ This is a simple Express web application to illustrate common basic usage of Azu
 
 ## Quickstart
 
-1. Log in to Azure Developer CLI.
+1. Log in to Azure Developer CLI. *This is only required once per-install.*
 
     ```bash
     azd auth login
     ```
-
-    > [!TIP]
-    > This is only required once per-install.
 
 1. Initialize this template (`cosmos-db-table-nodejs-quickstart`) using `azd init`
 
