@@ -9,8 +9,7 @@
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
-        "ms-azuretools.azure-dev",
-        "ms-azuretools.vscode-cosmosdb"
+        "ms-azuretools.azure-dev"
       ]
     }
   }
